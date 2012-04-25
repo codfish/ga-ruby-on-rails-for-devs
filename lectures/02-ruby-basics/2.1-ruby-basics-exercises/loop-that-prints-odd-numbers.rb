@@ -10,7 +10,6 @@
 
 =end
 
-
 10.times { |i|
 	puts "#{i}" if i%2 > 0
 }
