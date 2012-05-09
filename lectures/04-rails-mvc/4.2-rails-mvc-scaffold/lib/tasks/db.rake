@@ -16,13 +16,13 @@ namespace :db do
         # raise NoDatabaseFileError.new("#{file} doesn't exist.") unless File.exists?(file)
         # raise DatabaseNotSetError.new("No database set for the #{environment} environment.") if database_config_file[environment]['database'].nil?
         
-        if database_config_file[environment]['database'].nil?
+        if database_config_file[environment].nil?
         
           raise Exception.new("No database set for the #{environment} environment.")
         
         else
         
-          puts database_config_file[environment]['database']
+          puts database_config_file[environment]
         
         end
       }
