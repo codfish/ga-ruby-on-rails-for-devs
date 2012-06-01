@@ -3,11 +3,13 @@ require 'spec_helper'
 describe "things/show.html.haml" do
 
   before(:each) do
-    assign(:thing, Fabricate(:thing))
+  	@thing = Fabricate(:thing)
+    #assign(:thing, Fabricate(:thing))
   end
 
   it "renders a thing" do
-    # TODO
+  	render
+    assert_select "h1", text: @thing.name, count: 1
   end
 
 end

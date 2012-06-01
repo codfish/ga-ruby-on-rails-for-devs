@@ -1,15 +1,17 @@
 class ThingsController < ApplicationController
-
+  
+  before_filter :get_thing, :only => [ :edit, :show, :update, :destroy ]
+  
   def index
     @things = Thing.all
   end
   
   def show
-    @thing = Thing.find(params[:id])
+    # @thing = Thing.find(params[:id])
   end
 
   def edit
-    @thing = Thing.find(params[:id])
+    # @thing = Thing.find(params[:id])
   end
         
   def new
@@ -26,7 +28,7 @@ class ThingsController < ApplicationController
   end
   
   def update
-    @thing = Thing.find(params[:id])
+    # @thing = Thing.find(params[:id])
     if @thing.update_attributes(params[:thing])
       redirect_to @thing, notice: "Thing was successfully updated."
     else
@@ -35,9 +37,19 @@ class ThingsController < ApplicationController
   end
   
   def destroy
-    @thing = Thing.find(params[:id])
+    # @thing = Thing.find(params[:id])
     @thing.destroy
     redirect_to things_url
+  end
+  
+  private
+  
+  def get_thing
+    begin
+      @thing = Thing.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      not_found
+    end
   end
 
 end

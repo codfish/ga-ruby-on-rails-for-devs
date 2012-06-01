@@ -1,3 +1,5 @@
 class ApplicationController < ActionController::Base
-  # TODO: common controller stuff goes here
+  def not_found
+    render file: "public/404.html"
+  end
 end
