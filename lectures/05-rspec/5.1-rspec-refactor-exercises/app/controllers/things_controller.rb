@@ -45,11 +45,9 @@ class ThingsController < ApplicationController
   private
   
   def get_thing
-    begin
-      @thing = Thing.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      not_found
-    end
+
+    @thing = Thing.find(params[:id])
+    
   end
 
 end

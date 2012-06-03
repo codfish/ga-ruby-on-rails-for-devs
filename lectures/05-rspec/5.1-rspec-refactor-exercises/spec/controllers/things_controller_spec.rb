@@ -39,7 +39,7 @@ describe ThingsController do
 		
 			before(:each) do	
 				@thing = Fabricate(:thing)
-				get "show", :id => @thing.id.to_s
+				get "show", :id => @thing.to_param
 			end
 			
 			it "assigns requested thing to @thing" do
@@ -54,15 +54,14 @@ describe ThingsController do
 		context "with an invalid id" do
 		
 			before(:each) do	
-				@thing = Fabricate(:thing)
 				get "show", :id => "2324"
 			end
 			
 			it "does not assign requested thing to @thing" do
-				assigns(:thing).should_not be_valid
+				assigns(:thing).should be_nil
 			end
 			
-			it { should redirect_to "public/404.html" }
+			it { response.code.should == "404" }
 						
 		end
 	
