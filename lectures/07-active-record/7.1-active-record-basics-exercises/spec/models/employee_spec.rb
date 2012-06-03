@@ -23,7 +23,7 @@ describe Employee do
     let(:employee) { Fabricate(:employee) }
     
     it "creates a valid employee" do
-    	employee.should exist
+    	employee.should be_valid
     end
   end
 end
