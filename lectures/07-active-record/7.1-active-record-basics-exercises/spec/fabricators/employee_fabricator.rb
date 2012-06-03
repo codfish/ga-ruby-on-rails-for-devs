@@ -3,4 +3,5 @@ Fabricator(:employee) do
   address { Faker::Address.street_address }
   start_date Time.now
   role
+  # project
 end
