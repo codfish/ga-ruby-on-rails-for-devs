@@ -6,4 +6,6 @@ class Employee < ActiveRecord::Base
 	validates :start_date, :presence => true
   
   belongs_to :role
+  has_many :employee_projects
+  has_many :projects, :through => :employee_projects
 end
