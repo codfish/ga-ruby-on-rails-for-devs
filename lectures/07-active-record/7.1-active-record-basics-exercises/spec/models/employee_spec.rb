@@ -13,10 +13,10 @@ describe Employee do
   end
 
   context "fabricators" do
-    let(:employee) { Fabricate(:employee) }
+    let(:employee) { Fabricate.build(:employee) }
     
     it "creates a valid employee" do
-    	employee.should be_valid
+    	employee.save.should === true
     end
   end
 end
