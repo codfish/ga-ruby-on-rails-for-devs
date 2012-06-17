@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120603175516) do
     t.integer  "employees_count"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "type"
   end
 
   create_table "roles", :force => true do |t|
